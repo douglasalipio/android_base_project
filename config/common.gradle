@@ -1,0 +1,10 @@
+apply plugin: 'kotlin-android-extensions'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    //Kotlin
+    implementation ProjectDependencies.kotlin
+}
