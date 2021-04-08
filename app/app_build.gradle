@@ -1,16 +1,17 @@
 apply plugin: 'com.android.application'
-
-apply from: '../config/android-common.gradle'
-apply from: '../config/common.gradle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion Versions.compileSdk
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSdkVersion"]
+
     defaultConfig {
         applicationId "com.baseproject.androidapp"
-        minSdkVersion Versions.minSdkVersion
-        targetSdkVersion Versions.targetSdk
-        versionCode Versions.releaseVersionCode
-        versionName Versions.releaseVersionName
+        minSdkVersion globalConfiguration["androidMinSdkVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSdkVersion"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -23,17 +24,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
 
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation mobileUiDependencies.kotlin
+    implementation mobileUiDependencies.jetpackHiltAndroid
+    implementation mobileUiDependencies.jetpackHiltCompile
+    implementation mobileUiDependencies.jetpackHiltFragment
 
-    // module dependencies
-    implementation project(ProjectModules.data)
-    implementation project(ProjectModules.domain)
-
-    implementation ProjectDependencies.appcompat
-    implementation ProjectDependencies.androidX
-    implementation ProjectDependencies.constraintLayout
 }

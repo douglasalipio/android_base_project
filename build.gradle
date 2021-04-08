@@ -1,20 +1,30 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext.kotlinVersion = '1.4.32'
+    ext.hiltVersion = '2.33-beta'
+    ext.gradlePluginVersion = '4.1.2'
     repositories {
         google()
         jcenter()
 
     }
     dependencies {
-        classpath PluginDependencies.gradle
-        classpath PluginDependencies.kotlin
+        classpath "com.android.tools.build:gradle:${gradlePluginVersion}"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:${hiltVersion}"
     }
 }
+
+apply from: 'dependencies.gradle'
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        jcenter { url "http://jcenter.bintray.com/" }
+        maven { url 'http://dl.bintray.com/populov/maven' }
+        maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://mobile.maven.couchbase.com/maven2/dev/' }
+        maven { url "https://www.jitpack.io" }
     }
 }
 
