@@ -28,13 +28,43 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/gradle/incremental.annotation.processors'
+    }
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+    }
 }
+
+
+
 
 dependencies {
 
     implementation mobileUiDependencies.kotlin
+    implementation mobileUiDependencies.androidxcore
+    implementation mobileUiDependencies.androidxlegacysupport
+    implementation mobileUiDependencies.androidxviewpager
+    implementation mobileUiDependencies.androidxconstraintlayout
+    implementation mobileUiDependencies.androidxmediarouter
+    implementation mobileUiDependencies.androidxappcompact
+    implementation mobileUiDependencies.jetpackNavigationComponse
+    implementation mobileUiDependencies.jetpackNavigationFragment
+    implementation mobileUiDependencies.jetpackNavigationUi
+    implementation mobileUiDependencies.jetpackNavigationDynamic
     implementation mobileUiDependencies.jetpackHiltAndroid
     implementation mobileUiDependencies.jetpackHiltCompile
     implementation mobileUiDependencies.jetpackHiltFragment
+    implementation mobileUiDependencies.coroutines
+    implementation mobileUiDependencies.coroutinesAndroid
+    implementation mobileUiDependencies.viewbinding
 
 }

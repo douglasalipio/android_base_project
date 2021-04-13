@@ -6,6 +6,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
 
     }
     dependencies {
@@ -20,11 +21,8 @@ apply from: 'dependencies.gradle'
 allprojects {
     repositories {
         google()
-        jcenter { url "http://jcenter.bintray.com/" }
-        maven { url 'http://dl.bintray.com/populov/maven' }
-        maven { url 'https://maven.fabric.io/public' }
-        maven { url 'https://mobile.maven.couchbase.com/maven2/dev/' }
-        maven { url "https://www.jitpack.io" }
+        jcenter()
+        mavenCentral()
     }
 }
 
@@ -33,12 +31,12 @@ task clean(type: Delete) {
 }
 
 task lint {
-    dependsOn ':app:lintDebug'
+    dependsOn ':mobile-ui:lintDebug'
     dependsOn ':data:lintDebug'
 }
 
 task ktlint {
-    dependsOn ':app:ktlint'
+    dependsOn ':mobile-ui:ktlint'
     dependsOn ':data:ktlint'
     dependsOn ':domain:ktlint'
 }

@@ -50,7 +50,7 @@ ext {
     domainDependencies = [
             coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
             coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
-            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
     ]
 
     domainTestDependencies = [
@@ -76,7 +76,7 @@ ext {
             coroutines               : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
             coroutinesAndroid        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}",
             viewbinding              : "com.android.databinding:viewbinding:${viewBindingVersion}",
-            kotlin                   : "org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}"
+            kotlin                   : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
     ]
 
     presentationTestDependencies = [
@@ -112,10 +112,23 @@ ext {
     remoteTestDependencies = []
 
     mobileUiDependencies = [
-            kotlin             : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
-            jetpackHiltAndroid : "com.google.dagger:hilt-android:${hiltVersion}",
-            jetpackHiltCompile : "com.google.dagger:hilt-compiler:$hiltVersion",
-            jetpackHiltFragment: "androidx.hilt:hilt-navigation-fragment:${hiltNavigationFragmentVersion}"
+            androidxcore             : "androidx.core:core-ktx:${androidxCoreVersion}",
+            androidxlegacysupport    : "androidx.core:core-ktx:${legacysupportVersion}",
+            androidxviewpager        : "androidx.viewpager:viewpager:${viewpagerVersion}",
+            androidxconstraintlayout : "androidx.constraintlayout:constraintlayout:${constraintlayoutVersion}",
+            androidxmediarouter      : "androidx.mediarouter:mediarouter:${mediarouterVersion}",
+            androidxappcompact       : "androidx.appcompat:appcompat:${appcompactVersion}",
+            jetpackNavigationComponse: "androidx.navigation:navigation-compose:${navigationComposeVersion}",
+            jetpackNavigationFragment: "androidx.navigation:navigation-fragment-ktx:${navVersion}",
+            jetpackNavigationUi      : "androidx.navigation:navigation-ui-ktx:${navVersion}",
+            jetpackNavigationDynamic : "androidx.navigation:navigation-dynamic-features-fragment:${navVersion}",
+            jetpackHiltAndroid       : "com.google.dagger:hilt-android:${hiltVersion}",
+            jetpackHiltCompile       : "com.google.dagger:hilt-compiler:$hiltVersion",
+            jetpackHiltFragment      : "androidx.hilt:hilt-navigation-fragment:${hiltNavigationFragmentVersion}",
+            coroutines               : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
+            coroutinesAndroid        : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}",
+            viewbinding              : "com.android.databinding:viewbinding:${viewBindingVersion}",
+            kotlin                   : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}"
     ]
 
     mobileUiTestDependencies = []

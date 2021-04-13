@@ -1,4 +1,4 @@
-include ':app'
+include ':mobile-ui'
 include ':domain'
 include ':data'
 
