@@ -13,7 +13,6 @@ dependencies {
     implementation dataDependencies.roomRuntime
     implementation dataDependencies.roomCompile
     implementation dataDependencies.roomKtx
-    implementation dataDependencies.kotlin
 
     testImplementation dataTestDependencies.junit
     testImplementation dataTestDependencies.kotlinJUnit

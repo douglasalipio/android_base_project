@@ -46,6 +46,7 @@ ext {
     androidSupportRulesVersion = '1.0.0'
     dexmakerMockitoversion = '2.2.0'
     runnerVersion = '0.5'
+    annotationVersion = '28.0.0'
 
     domainDependencies = [
             coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
@@ -103,9 +104,19 @@ ext {
             roomTesting: "androidx.room:room-testing:${roomVersion}"
     ]
 
-    cacheDependencies = []
+    cacheDependencies = [
+            annotation        : "com.android.support:support-annotations:${annotationVersion}",
+            kotlin            : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
+            jetpackHiltAndroid: "com.google.dagger:hilt-android:${hiltVersion}",
+            jetpackHiltCompile: "com.google.dagger:hilt-compiler:$hiltVersion"
+    ]
 
-    cacheTestDependencies = []
+    cacheTestDependencies = [
+            junit      : "junit:junit:${jUnitVersion}",
+            kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
+            assertj    : "org.assertj:assertj-core:${assertJVersion}",
+            mockito    : "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}"
+    ]
 
     remoteDependencies = []
 
