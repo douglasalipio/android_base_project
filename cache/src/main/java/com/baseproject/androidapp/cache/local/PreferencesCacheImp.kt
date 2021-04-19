@@ -1,4 +1,4 @@
-package com.baseproject.androidapp.cache
+package com.baseproject.androidapp.cache.local
 
 import android.content.Context
 import android.content.SharedPreferences

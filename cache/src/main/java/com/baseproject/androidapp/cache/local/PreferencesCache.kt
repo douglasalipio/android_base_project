@@ -1,4 +1,4 @@
-package com.baseproject.androidapp.cache
+package com.baseproject.androidapp.cache.local
 
 interface PreferencesCache {
 

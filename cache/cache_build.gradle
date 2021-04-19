@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -17,6 +16,15 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/cache/scheme/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
     }
 
     buildTypes {
@@ -32,6 +40,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     sourceSets {
         main {
             manifest.srcFile 'manifest/AndroidManifest.xml'
@@ -41,10 +50,13 @@ android {
 
 dependencies {
 
+    implementation project(':data')
+
     implementation cacheDependencies.kotlin
     implementation cacheDependencies.annotation
     implementation cacheDependencies.jetpackHiltAndroid
-    kapt cacheDependencies.jetpackHiltCompile
+    implementation cacheDependencies.roomRuntime
+    kapt cacheDependencies.roomCompiler
 
     testImplementation cacheTestDependencies.junit
     testImplementation cacheTestDependencies.kotlinJUnit

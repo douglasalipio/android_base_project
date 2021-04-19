@@ -97,18 +97,21 @@ ext {
     ]
 
     dataTestDependencies = [
+            kotlin     : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
+            coroutines : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
             junit      : "junit:junit:${jUnitVersion}",
             kotlinJUnit: "org.jetbrains.kotlin:kotlin-test-junit:${kotlinVersion}",
             assertj    : "org.assertj:assertj-core:${assertJVersion}",
             mockito    : "com.nhaarman:mockito-kotlin:${mockitoKotlinVersion}",
-            roomTesting: "androidx.room:room-testing:${roomVersion}"
     ]
 
     cacheDependencies = [
             annotation        : "com.android.support:support-annotations:${annotationVersion}",
             kotlin            : "org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}",
             jetpackHiltAndroid: "com.google.dagger:hilt-android:${hiltVersion}",
-            jetpackHiltCompile: "com.google.dagger:hilt-compiler:$hiltVersion"
+            jetpackHiltCompile: "com.google.dagger:hilt-compiler:$hiltVersion",
+            roomRuntime       : "android.arch.persistence.room:runtime:${roomVersion}",
+            roomCompiler      : "android.arch.persistence.room:compiler:${roomVersion}"
     ]
 
     cacheTestDependencies = [
