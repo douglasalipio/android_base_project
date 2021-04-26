@@ -1,6 +1,5 @@
-package com.baseproject.androidapp.cache
+package com.baseproject.androidapp.cache.mapper
 
-import com.baseproject.androidapp.cache.mapper.UserModelMapper
 import com.baseproject.androidapp.cache.model.UserModel
 import com.baseproject.androidapp.data.model.UserEntity
 import org.assertj.core.api.Assertions.assertThat
@@ -20,9 +19,9 @@ class UserModelMapperTest {
     @Test
     fun `map user model to user entity`() {
 
-        val userModel = userModelMapper.map(userModelFake())
+        val userModel = userModelMapper.map(userEntityFake())
         SoftAssertions.assertSoftly {
-            assertThat(userModel.id).isEqualTo(userEntityFake().id)
+            assertThat(userModel.uid).isEqualTo(userEntityFake().id)
             assertThat(userModel.name).isEqualTo(userEntityFake().name)
             assertThat(userModel.lastName).isEqualTo(userEntityFake().lastName)
             assertThat(userModel.avatar).isEqualTo(userEntityFake().avatar)
@@ -30,6 +29,4 @@ class UserModelMapperTest {
     }
 
     private fun userEntityFake() = UserEntity(1L, "Douglas", "Mesquita", "URL")
-
-    private fun userModelFake() = UserModel(1L, "Douglas", "Mesquita", "URL")
 }

@@ -10,6 +10,8 @@ java {
 
 dependencies {
 
+    implementation project(':domain')
+
     implementation dataTestDependencies.kotlin
     implementation dataTestDependencies.coroutines
     testImplementation dataTestDependencies.junit

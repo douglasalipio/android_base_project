@@ -55,8 +55,10 @@ dependencies {
     implementation cacheDependencies.kotlin
     implementation cacheDependencies.annotation
     implementation cacheDependencies.jetpackHiltAndroid
+    implementation cacheDependencies.layerCache
     implementation cacheDependencies.roomRuntime
     kapt cacheDependencies.roomCompiler
+
 
     testImplementation cacheTestDependencies.junit
     testImplementation cacheTestDependencies.kotlinJUnit

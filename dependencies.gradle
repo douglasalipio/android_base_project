@@ -47,6 +47,7 @@ ext {
     dexmakerMockitoversion = '2.2.0'
     runnerVersion = '0.5'
     annotationVersion = '28.0.0'
+    layerCacheVersion = '1.3.0'
 
     domainDependencies = [
             coroutines       : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
@@ -111,7 +112,9 @@ ext {
             jetpackHiltAndroid: "com.google.dagger:hilt-android:${hiltVersion}",
             jetpackHiltCompile: "com.google.dagger:hilt-compiler:$hiltVersion",
             roomRuntime       : "android.arch.persistence.room:runtime:${roomVersion}",
-            roomCompiler      : "android.arch.persistence.room:compiler:${roomVersion}"
+            roomCompiler      : "android.arch.persistence.room:compiler:${roomVersion}",
+            layerCache        : "com.appmattus.layercache:layercache:${layerCacheVersion}"
+
     ]
 
     cacheTestDependencies = [
